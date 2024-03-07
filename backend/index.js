@@ -1,15 +1,13 @@
 import express from "express";
 import mysql from "mysql";
 
-const mysql_pw = process.env.MYSQL_PW;
-
 const app = express()
 
 // connect to database
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password: mysql_pw,
+    password: "insert your pw here",
     database: "project"
 })
 
@@ -18,7 +16,7 @@ app.get("/", (req,res)=>{
     res.json("hello this is the backend")
 })
 
-// currently not working on my end
+// execute and display the following query
 app.get("/address", (req,res)=>{
     const q = "SELECT * FROM ADDRESS"
     db.query(q,(err,data)=>{
