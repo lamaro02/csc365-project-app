@@ -16,9 +16,13 @@ app.get("/", (req,res)=>{
     res.json("hello this is the backend")
 })
 
-// execute and display the following query
-app.get("/address", (req,res)=>{
-    const q = "SELECT * FROM ADDRESS"
+// return info we want displayed on page: product name, brand, vendor, description, qoh
+app.get("/products", (req,res)=>{
+    const q = `
+    SELECT p.product_name, p.product_price, p.in_stock, b.brand_name
+    FROM PRODUCT p
+    JOIN BRAND b ON b.brand_id = p.brand_id
+    `
     db.query(q,(err,data)=>{
         if(err) return res.json(err)
         return res.json(data)
