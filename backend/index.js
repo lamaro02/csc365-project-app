@@ -44,8 +44,9 @@ app.get("/guilds", (req,res)=>{
     })
 })
 
+// Tried to get inserting a guild into the database to work but it didn't womp womp
 app.post("/guilds", (req,res)=>{
-    const q = "INSERT INTO GUILD (`guild_id`, `guild_name`, `discount_perc`, `guild_desc`) VALUES (?)"
+    const q = "INSERT INTO GUILD ('guild_id', 'guild_name', 'discount_perc', 'guild_desc') VALUES (?, ?, ?, ?)"
     const values = [
     req.body.guild_id, 
     req.body.guild_name, 
