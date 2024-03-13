@@ -4,9 +4,21 @@ import ProductList from './ProductList'
 
 const Product = () => {
     const [inputText, setInputText] = useState("");
+    const [error, setError] = useState("")
     
     let inputHandler = (e) => {
-        //convert input text to lower case
+        //check for errors in input text, then convert input text to lower case
+        for (let i=0; i < e.target.value.length; i++) {
+            if (!isNaN(+e.target.value[i]) && e.target.value[i] !== " ") {
+                setError("Numeric input not allowed.")
+            }
+            else if (((e.target.value).charCodeAt(i) > 32 && (e.target.value).charCodeAt(i) < 48) || ((e.target.value).charCodeAt(i) > 57 && (e.target.value).charCodeAt(i) < 65)) {
+                setError("Special characters not allowed.")
+            } 
+            else {
+                setError("")
+            }
+        }
         var lowerCase = e.target.value.toLowerCase();
         setInputText(lowerCase);
     };
@@ -22,7 +34,12 @@ const Product = () => {
                 onChange={inputHandler}
                 value={inputText}/>
             </div>
-            <ProductList input={inputText}/>
+            {
+                error === "" ? (
+                    <ProductList input={inputText}/>
+                ) : (
+                    <p>{error}</p>
+                )}
         </div>
     )
 }
