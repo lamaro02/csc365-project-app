@@ -12,6 +12,7 @@ const db = mysql.createConnection({
     database: "project"
 })
 
+
 app.use(cors())
 
 // display following message onto localhost:8800
@@ -29,6 +30,31 @@ app.get("/products", (req,res)=>{
     db.query(q,(err,data)=>{
         if(err) return res.json(err)
         return res.json(data)
+    })
+})
+
+app.get("/guilds", (req,res)=>{
+    const q = `
+    SELECT guild_name, guild_id, discount_perc, guild_desc
+    FROM GUILD
+    `
+    db.query(q,(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+})
+
+app.post("/guilds", (req,res)=>{
+    const q = "INSERT INTO GUILD (`guild_id`, `guild_name`, `discount_perc`, `guild_desc`) VALUES (?)"
+    const values = [
+    req.body.guild_id, 
+    req.body.guild_name, 
+    req.body.discount_perc,
+    req.body.guild_desc
+    ];
+    db.query(q, [values], (err,data)=>{
+        if(err) return res.json(err)
+        return res.json("Book has been created successfully")
     })
 })
 

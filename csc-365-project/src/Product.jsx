@@ -50,8 +50,8 @@ const Product = () => {
                 type="text" 
                 placeholder='Type to search...'/>
             </div>
-            <div className="sortByName" onClick={sortByName}>Sort By Name</div>
-            <div className="sortByPrice" onClick={sortByPrice}>Sort By Price</div>
+            <div className="sort" onClick={sortByName}>Sort By Name</div>
+            <div className="sort" onClick={sortByPrice}>Sort By Price</div>
             <div className='products'>
                 {products.map(product=>(    
                     <div className='product'>

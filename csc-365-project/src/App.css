@@ -13,25 +13,21 @@
   color: white;
 }
 
-
-.sortByName{
-  font-size: 30px;
-  margin-left: 625px;
-  margin-right: 625px;
-  border-style: solid;
-  background-color: darkgray;
-}
-
-.sortByPrice{
-  font-size: 30px;
+.sort {
+  font-size: 20px;
   margin-top: 25px;;
-  margin-left: 625px;
-  margin-right: 625px;
+  margin-left: 400px;
+  margin-right: 400px;
   border-style: solid;
   background-color: darkgray;
 }
 
 .input-wrapper {
+  margin-bottom: 25px;
+}
+
+.button {
+  font-size: 20px;
   margin-bottom: 25px;
 }
 
