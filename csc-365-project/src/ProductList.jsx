@@ -49,18 +49,25 @@ function Products_List(props) {
 
     return (
         <div>
-            <div className="sort" onClick={sortByName}>Sort By Name</div>
-            <div className="sort" onClick={sortByPrice}>Sort By Price</div>
-            <div className='products'>
-                {filteredData.map(product=>(    
-                   <div className='product' key={product.product_id}>
+            { filteredData.length === 0 ? (
+               <p>No products found. Please try a different search.</p> // no matches were found, so alert user to try a different search
+            ) : (
+                <div>
+                    <div className="sort" onClick={sortByName}>Sort By Name</div>
+                    <div className="sort" onClick={sortByPrice}>Sort By Price</div>
+                    <div className='products'>
+                    {filteredData.map(product=>(    
+                        <div className='product' key={product.product_id}>
                         <h2>{product.product_name}</h2>
                         <p>Price: ${product.product_price}</p>
                         <p>In Stock: {product.in_stock}</p>
                         {/* <p>Brand: {product.brand_name}</p> */}
-                    </div>   
+                        </div>   
                 ))}
             </div>
+            </div>
+            )
+        }
         </div>
     )
 }
