@@ -9,4 +9,4 @@ All code for the website's user-interface is contained in the `csc-365-project` 
 
 As mentioned, had there been more time, future work would have involved connecting the Add Guild page to the app's backend, so a user could enter a new guild into the database from the website. The UI is contained in  `csc-365-project/src/AddGuild.jsx` and the Post endpoint to input the information into the database is contained in `backend/index.js`. The connection between the two stands as future work. 
 
-To run this project on a local machine, be sure to install all `package.json` files. Note that there are `package.json` files in three locations in this repository: root, `backend`, and `csc-365-project`. 
+To run this project on a local machine, be sure to install all `package.json` files. Note that there are `package.json` files in three locations in this repository: root, `backend`, and `csc-365-project`. Then, run `npm start` in both the `backend` and `csc-365-project` folders. 
